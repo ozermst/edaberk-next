@@ -2,6 +2,8 @@ from .base import *
 
 DEBUG = False
 
+SECRET_KEY = os.environ["SECRET_KEY"]
+
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ["188.166.160.83"]
 
