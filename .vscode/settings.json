@@ -1,0 +1,26 @@
+{
+  "python.formatting.provider": "black",
+  "files.associations": {
+    "**/templates/**/*.html": "django-html"
+  },
+  "beautify.language": {
+    "html": ["htm", "html", "django-html"]
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.html$",
+        "isAsync": true,
+        "cmd": "./path/to/venv/bin/djlint ${file} --reformat --quiet"
+      }
+    ]
+  }
+}
