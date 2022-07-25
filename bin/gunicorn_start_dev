@@ -1,0 +1,35 @@
+#!/bin/bash
+
+NAME="edaberk"  #Django application name
+DIR=/Users/mustafaozer/Development/edaberk/edaberk   #Directory where project is located
+USER=mustafaozer   #User to run this script as
+# GROUP=mustafaozer  #Group to run this script as
+WORKERS=3     #Number of workers that Gunicorn should spawn
+# SOCKFILE=/Users/mustafaozer/Development/edaberk/edaberk/run/gunicorn.sock   #This socket file will communicate with Nginx 
+SOCKFILE=/Users/mustafaozer/Development/edaberk/edaberk/fuck.sock
+DJANGO_SETTINGS_MODULE=edaberk.settings.dev   #Which Django setting file should use
+DJANGO_WSGI_MODULE=edaberk.wsgi           #Which WSGI file should use
+LOG_LEVEL=debug     # ???
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DIR
+source /Users/mustafaozer/Development/edaberk/edaberk/env/bin/activate 
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+
+# Command to run the progam under supervisor
+exec /Users/mustafaozer/Development/edaberk/edaberk/env/bin/gunicorn ${DJANGO_WSGI_MODULE} \
+--name $NAME \
+--workers $WORKERS \
+--user=$USER \
+# --group=$GROUP \
+--bind=$SOCKFILE \
+--log-level=$LOG_LEVEL \
+--log-file=-
