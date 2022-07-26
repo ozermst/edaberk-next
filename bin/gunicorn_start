@@ -24,11 +24,11 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 
 # Command to run the progam under supervisor
-exec env/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec env/bin/gunicorn ${DJANGO_WSGI_MODULE} \
 --name $NAME \
 --workers $WORKERS \
 --user=$USER \
---group=$GROUP \ 
+--group=$GROUP \
 --bind=unix:$SOCKFILE \
 --log-level=$LOG_LEVEL \
 --log-file=-
