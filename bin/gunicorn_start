@@ -3,7 +3,7 @@
 NAME="edaberk"  #Django application name
 DIR=/home/ozermst/edaberk   #Directory where project is located
 USER=ozermst   #User to run this script as
-GROUP=ozermst  #Group to run this script as
+GROUP=www-data  #Group to run this script as
 WORKERS=3     #Number of workers that Gunicorn should spawn
 SOCKFILE=/home/ozermst/edaberk/run/gunicorn.sock   #This socket file will communicate with Nginx 
 LOGFILE=/home/ozermst/edaberk/logs/nginx-error.log
