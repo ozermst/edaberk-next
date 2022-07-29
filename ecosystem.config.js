@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "edaberk",
-      script: "bin/gunicorn_start",
+      script: "/home/ozermst/edaberk/bin/gunicorn_start",
     },
   ],
 };
