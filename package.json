@@ -5,7 +5,7 @@
   "main": "ecosystem.config.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./edaberk/static/css/input.css -o ./edaberk/static/css/edaberk.css --watch",
-    "prod": "NODE_ENV=production npx tailwindcss -i ./edaberk/static/css/input.css -o ./edaberk/static/css/edaberk.css --minify",
+    "prod": "NODE_ENV=production npx tailwindcss -i ./edaberk/static/css/input.css -o ./edaberk/static/css/edaberk.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
