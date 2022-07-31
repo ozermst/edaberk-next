@@ -21,7 +21,7 @@
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
+        {% endblock extra_css %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -30,6 +30,8 @@
         {% include "header.html" %}
 
         {% block content %}{% endblock %}
+
+        {% include "footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/edaberk.js' %}"></script>
